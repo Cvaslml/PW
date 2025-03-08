@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
+    <style>
+        @import url('./css/index.css');
+    </style>
+</head>
+<body>
+    <main>
+        <section id="contenedor">            
+            <div id="mapa">
+                <h1>Mapa de Navegación</h1>
+                <div id="map"></div>
+            </div>
+            <div id="tabla">
+                <table id="tabla_datos">
+                    <thead>
+                        <tr>
+                            <th colspan="2" id="head_table">Datos Lugar Seleccionado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Latitud:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Longitud:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Temperatura (°C):</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Humedad Relativa (%):</b></td>
+                            <td>#</td>
+                        </tr>
+                    </tbody>                    
+                </table>
+                <h1 id="historial">Historial</h1>
+                <table id="tabla_historial">
+                    <thead>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>Temperatura (°C)</th>
+                        <th>Temperatura (%)</th>
+                    </thead>
+                </table>
+            </div>
+
+        </section>
+    </main>
+    <script src="./js/index.js"></script>
+</body>
+</html>

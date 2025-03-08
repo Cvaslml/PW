@@ -7,29 +7,37 @@
   3) Desarrollar un historial de busquedas anteriores que vaya cargando en la medida que el usuario selecciona diferentes ubicaciones en el mapa.
 */
 
-let mapa;
+let map;
+let historial = [];
 
-window.addEventListener("load",function(){
-
+// Al cargar la página
+window.addEventListener("load", function() {
     map = new ol.Map({
         target: 'map',
         layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM(),
-          }),
+            new ol.layer.Tile({
+                source: new ol.source.OSM(),
+            }),
         ],
         view: new ol.View({
-          center: ol.proj.transform([-72.265911,3.7644111], 'EPSG:4326', 'EPSG:3857'),
-          zoom: 5,
+            center: ol.proj.transform([-72.265911, 3.7644111], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 5,
         }),
-      });
-    
-    map.on('click', function(evt){
-        let coordinates = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-        let latitud = coordinates[1];
-        let longitud = coordinates[0];
-        console.log("Latitud:",latitud);
-        console.log("Longitud:",longitud);
     });
 
-})
+    map.on('click', function(evt) {
+        let coordinates = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+        let latitud = coordinates[1].toFixed(6); // Limitar decimales
+        let longitud = coordinates[0].toFixed(6);
+
+        console.log("Latitud:", latitud);
+        console.log("Longitud:", longitud);
+
+        // Mostrar latitud y longitud en la tabla
+        document.querySelector("#tabla_datos tbody tr:nth-child(1) td:nth-child(2)").textContent = latitud;
+        document.querySelector("#tabla_datos tbody tr:nth-child(2) td:nth-child(2)").textContent = longitud;
+
+        // Consultar API de clima
+        obtenerClima(latitud, longitud);
+    });
+});

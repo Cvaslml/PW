@@ -1,0 +1,69 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#bandera{
+    height: 70px;
+}
+
+#contenedor{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#head_table{
+    color: rgb(23, 98, 190);
+}
+
+#historial {
+    color: rgb(12, 96, 12);
+    font-size: 25px;
+    margin:10px;
+}
+
+#historial_container{
+    padding: 15px 30px;
+}
+
+
+#mapa {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+#principal_title{
+    text-align: center;
+    font-size: 40px;
+    margin:10px;
+}
+
+#tabla {
+    grid-column: 2;
+    grid-row: 1;
+    padding:15px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#tabla_datos{
+    font-size: 30px;
+    text-align: left;
+}
+
+#tabla_historial{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}

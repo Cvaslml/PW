@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
+    <style>
+        @import url('./css/index.css');
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 id="principal_title">Parcial 1 Programación en la Web</h1>
+        <section id="contenedor">
+
+            <div id="mapa">
+                <h1>Mapa de Navegación</h1>
+                <div id="map"></div>
+            </div>
+            <div id="tabla">
+                <table id="tabla_datos">
+                    <thead>
+                        <tr>
+                            <th colspan="2" id="head_table">Datos Lugar Seleccionado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Pais:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Región:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Ciudad:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Latitud:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Longitud:</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Temperatura (°C):</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Humedad Relativa (%):</b></td>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td><b>Bandera:</b></td>
+                            <td><img id="bandera" src="#"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="historial_container">
+            <h1 id="historial">Historial</h1>
+            <table id="tabla_historial">
+                <thead>
+                    <th>Pais</th>
+                    <th>Región</th>
+                    <th>Ciudad</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>Temperatura (°C)</th>
+                    <th>Humedad (%)</th>
+                </thead>
+            </table>
+        </section>
+    </main>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

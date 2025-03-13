@@ -10,7 +10,6 @@
 let map;
 let historial = [];
 
-// Al cargar la página
 window.addEventListener("load", function() {
     map = new ol.Map({
         target: 'map',
@@ -27,17 +26,40 @@ window.addEventListener("load", function() {
 
     map.on('click', function(evt) {
         let coordinates = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-        let latitud = coordinates[1].toFixed(6); // Limitar decimales
+        let latitud = coordinates[1].toFixed(6);
         let longitud = coordinates[0].toFixed(6);
 
-        console.log("Latitud:", latitud);
-        console.log("Longitud:", longitud);
-
-        // Mostrar latitud y longitud en la tabla
         document.querySelector("#tabla_datos tbody tr:nth-child(1) td:nth-child(2)").textContent = latitud;
         document.querySelector("#tabla_datos tbody tr:nth-child(2) td:nth-child(2)").textContent = longitud;
 
-        // Consultar API de clima
         obtenerClima(latitud, longitud);
     });
 });
+
+function obtenerClima(latitud, longitud) {
+    let url = `https://api.open-meteo.com/v1/forecast?latitude=${latitud}&longitude=${longitud}&hourly=temperature_2m,relative_humidity_2m`;
+    
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.hourly) {
+                let temperatura = data.hourly.temperature_2m[0];
+                let humedad = data.hourly.relative_humidity_2m[0];
+
+                document.querySelector("#tabla_datos tbody tr:nth-child(3) td:nth-child(2)").textContent = temperatura;
+                document.querySelector("#tabla_datos tbody tr:nth-child(4) td:nth-child(2)").textContent = humedad;
+                
+                actualizarHistorial(latitud, longitud, temperatura, humedad);
+            }
+        })
+        .catch(error => console.error("Error obteniendo los datos del clima:", error));
+}
+
+function actualizarHistorial(latitud, longitud, temperatura, humedad) {
+    historial.push({ latitud, longitud, temperatura, humedad });
+    
+    let tablaHistorial = document.querySelector("#tabla_historial");
+    let fila = document.createElement("tr");
+    fila.innerHTML = `<td>${latitud}</td><td>${longitud}</td><td>${temperatura}</td><td>${humedad}</td>`;
+    tablaHistorial.appendChild(fila);
+}

@@ -31,35 +31,35 @@
                     <tbody>
                         <tr>
                             <td><b>Pais:</b></td>
-                            <td>#</td>
+                            <td id="pais"></td>
                         </tr>
                         <tr>
                             <td><b>Región:</b></td>
-                            <td>#</td>
+                            <td id="region"></td>
                         </tr>
                         <tr>
                             <td><b>Ciudad:</b></td>
-                            <td>#</td>
+                            <td id="ciudad"></td>
                         </tr>
                         <tr>
                             <td><b>Latitud:</b></td>
-                            <td>#</td>
+                            <td id="latitud"></td>
                         </tr>
                         <tr>
                             <td><b>Longitud:</b></td>
-                            <td>#</td>
+                            <td id="longitud"></td>
                         </tr>
                         <tr>
                             <td><b>Temperatura (°C):</b></td>
-                            <td>#</td>
+                            <td id="temperaturaActual"></td>
                         </tr>
                         <tr>
                             <td><b>Humedad Relativa (%):</b></td>
-                            <td>#</td>
+                            <td id="humedadActual"></td>
                         </tr>
                         <tr>
                             <td><b>Bandera:</b></td>
-                            <td><img id="bandera" src="#"></td>
+                            <td><img id="bandera" src="" alt="Bandera del país"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -69,14 +69,19 @@
             <h1 id="historial">Historial</h1>
             <table id="tabla_historial">
                 <thead>
-                    <th>Pais</th>
-                    <th>Región</th>
-                    <th>Ciudad</th>
-                    <th>Latitud</th>
-                    <th>Longitud</th>
-                    <th>Temperatura (°C)</th>
-                    <th>Humedad (%)</th>
+                    <tr>
+                        <th>Pais</th>
+                        <th>Región</th>
+                        <th>Ciudad</th>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>Temperatura (°C)</th>
+                        <th>Humedad (%)</th>
+                    </tr>
                 </thead>
+                <tbody>
+                    <!-- Aquí se cargarán dinámicamente las filas del historial -->
+                </tbody>
             </table>
         </section>
     </main>
